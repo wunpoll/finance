@@ -18,8 +18,6 @@ const years = [2024, 2025, 2026, 2027];
 
 const COLORS = ["#34d399","#60a5fa","#f87171","#fbbf24","#a78bfa","#fb7185"];
 
-const makeId = () => Math.random().toString(36).slice(2, 9);
-
 function Card({ children, className = "" }) {
   return (
     <div className={`bg-gradient-to-b from-zinc-900 to-zinc-950 border border-zinc-800/70 rounded-2xl shadow-xl shadow-black/30 ${className}`}>
@@ -87,7 +85,6 @@ function ListManager({ type, items, refresh, label, month, year }) {
       await supabase
         .from("finance_items")
         .insert({
-          id: makeId(),
           type,
           name,
           amount: Number(amount),
